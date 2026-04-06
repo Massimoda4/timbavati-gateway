@@ -1,61 +1,69 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const testimonials = [
   {
-    quote: "This lodge has it all – amazing people, food, rooms, scenery. They think about the guest experience from the moment you arrive and the attention to detail is incredible. This was a holiday of a lifetime.",
-    author: "Sheila M",
-    source: "TripAdvisor",
-  },
-  {
-    quote: "We stayed 3 nights at Makanyi. What a great experience. The rooms were outstanding, spacious, and clean. The entire staff goes out of their way to welcome you. On a scale of 1 to 10, we gave them a 15.",
+    title: "One a scale of 1 to 10. We give it a 15.",
+    quote: "We stayed here 3 nights at Makanyi. What a great experience. The rooms were outstanding, spacious, and clean. The chef makes great food and you feel full all day long. The entire staff starting with Lillian goes out of their way to welcome you and looking after you. You feel as part of their family. One a scale of 1 to 10, we gave them a 15.",
     author: "Tom M",
     source: "TripAdvisor",
   },
   {
-    quote: "Had an absolutely amazing time at Makanyi! Truly a life-changing experience. The guides were exceptional, the staff attentive, and every detail was thoughtfully curated. Can't recommend it enough!",
+    title: "Life changing stay",
+    quote: "Had an absolutely amazing time at Makanyi! Huge shoutout to Sake and Casey for making the trip unforgettable and keeping us safe. Johannes was so attentive, the barman blew us away with surprise drinks and Cecilia's cheerfulness made every day brighter. Truly a life-changing experience – can't recommend it enough!",
     author: "Sarah C",
+    source: "TripAdvisor",
+  },
+  {
+    title: "Sooo good, book it now",
+    quote: "This lodge has it all – amazing people, food, rooms, scenery. They think about the guest experience from the moment you arrive and the attention to detail is incredible. All the staff are utterly amazing including the chefs who create the most fabulous meals. This was a holiday of a lifetime for us.",
+    author: "Sheila M",
     source: "TripAdvisor",
   },
 ];
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section ref={ref} className="bg-primary section-padding">
-      <div className="max-w-4xl mx-auto text-center">
+    <section ref={ref} className="section-padding bg-primary">
+      <div className="max-w-3xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9 }}
+          transition={{ duration: 0.8 }}
         >
-          <p className="text-gold text-xs tracking-safari uppercase font-body mb-4">
-            Guest Stories
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-primary-foreground leading-tight mb-12">
-            What Our Guests Say
-          </h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.9, delay: 0.3 }}
-          className="min-h-[200px]"
-        >
-          <p className="font-display text-lg md:text-xl text-primary-foreground/90 italic leading-relaxed mb-8">
-            "{testimonials[active].quote}"
-          </p>
-          <div className="w-12 h-px bg-gold mx-auto mb-4" />
-          <p className="text-gold text-sm font-body tracking-widest uppercase">
-            {testimonials[active].author}
-          </p>
-          <p className="text-primary-foreground/50 text-xs font-body tracking-widest uppercase mt-1">
-            {testimonials[active].source}
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="font-display text-2xl md:text-3xl text-primary-foreground mb-8 italic">
+                {testimonials[active].title}
+              </h3>
+              <p className="font-body text-primary-foreground/80 text-sm md:text-[15px] leading-[1.9] tracking-wide mb-8">
+                "{testimonials[active].quote}"
+              </p>
+              <p className="text-accent text-sm font-body tracking-widest uppercase font-medium">
+                {testimonials[active].author}
+              </p>
+              <p className="text-primary-foreground/40 text-xs font-body tracking-widest uppercase mt-1">
+                {testimonials[active].source}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
 
         {/* Dots */}
@@ -64,8 +72,8 @@ const TestimonialsSection = () => {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === active ? "bg-gold w-6" : "bg-primary-foreground/30"
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === active ? "bg-accent w-8" : "bg-primary-foreground/20 w-2"
               }`}
             />
           ))}

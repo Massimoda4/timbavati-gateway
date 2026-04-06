@@ -4,12 +4,11 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Suites", href: "#suites" },
+  { label: "Stay", href: "#suites" },
   { label: "Experiences", href: "#experiences" },
   { label: "Rates", href: "#rates" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -25,57 +24,48 @@ const Navbar = () => {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/95 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
+            ? "bg-primary shadow-lg"
+            : "bg-primary/90"
         }`}
       >
-        <nav className="flex items-center justify-between px-6 md:px-12 lg:px-24 py-5">
-          <a href="#home" className="flex flex-col">
-            <span
-              className={`font-display text-xl md:text-2xl tracking-safari font-semibold transition-colors duration-500 ${
-                scrolled ? "text-foreground" : "text-background"
-              }`}
-            >
-              MAKANYI
-            </span>
-            <span
-              className={`text-[10px] tracking-safari font-body uppercase transition-colors duration-500 ${
-                scrolled ? "text-muted-foreground" : "text-background/70"
-              }`}
-            >
-              Private Game Lodge
-            </span>
+        <nav className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-4">
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-3">
+            <div className="flex flex-col">
+              <span className="font-display text-lg md:text-xl tracking-mega font-semibold text-primary-foreground">
+                MAKANYI
+              </span>
+              <span className="text-[9px] tracking-safari font-body uppercase text-primary-foreground/60">
+                Private Game Lodge
+              </span>
+            </div>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-xs tracking-widest uppercase font-body font-medium transition-colors duration-500 hover:text-gold ${
-                  scrolled ? "text-foreground" : "text-background"
-                }`}
+                className="text-[11px] tracking-safari uppercase font-body font-medium text-primary-foreground/80 hover:text-accent transition-colors duration-300"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="ml-4 px-6 py-2.5 text-xs tracking-widest uppercase font-body font-medium border border-gold text-gold hover:bg-gold hover:text-background transition-all duration-500"
+              className="ml-4 px-7 py-2.5 text-[11px] tracking-safari uppercase font-body font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300"
             >
-              Book Now
+              Book Online
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className={`lg:hidden transition-colors ${
-              scrolled ? "text-foreground" : "text-background"
-            }`}
+            className="lg:hidden text-primary-foreground"
           >
             <Menu size={24} />
           </button>
@@ -89,15 +79,15 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-foreground/95 flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[100] bg-primary flex flex-col items-center justify-center"
           >
             <button
               onClick={() => setMobileOpen(false)}
-              className="absolute top-6 right-6 text-background"
+              className="absolute top-5 right-6 text-primary-foreground"
             >
               <X size={28} />
             </button>
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-7">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.label}
@@ -105,8 +95,8 @@ const Navbar = () => {
                   onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  className="text-background text-sm tracking-safari uppercase font-body font-light hover:text-gold transition-colors"
+                  transition={{ delay: i * 0.06 }}
+                  className="text-primary-foreground text-sm tracking-safari uppercase font-body font-light hover:text-accent transition-colors"
                 >
                   {link.label}
                 </motion.a>
@@ -114,9 +104,9 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-4 px-8 py-3 border border-gold text-gold text-xs tracking-widest uppercase font-body hover:bg-gold hover:text-background transition-all"
+                className="mt-4 px-8 py-3 bg-accent text-accent-foreground text-xs tracking-safari uppercase font-body font-semibold hover:bg-accent/90 transition-all"
               >
-                Book Now
+                Book Online
               </a>
             </div>
           </motion.div>
