@@ -19,7 +19,7 @@ const AboutSection = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
             Welcome to Makanyi Private Game Lodge
           </h2>
-          <p className="text-accent text-sm tracking-widest uppercase font-body mt-4">
+          <p className="text-accent text-xl md:text-2xl font-sub normal-case tracking-normal mt-4">
             Situated in the Big 5 Timbavati Nature Reserve
           </p>
         </motion.div>

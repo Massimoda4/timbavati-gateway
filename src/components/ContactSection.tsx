@@ -18,7 +18,7 @@ const ContactSection = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
             Contact Us
           </h2>
-          <p className="text-accent text-sm tracking-widest uppercase font-body mt-4">
+          <p className="text-accent text-xl md:text-2xl font-sub normal-case tracking-normal mt-4">
             Plan your safari escape
           </p>
         </motion.div>

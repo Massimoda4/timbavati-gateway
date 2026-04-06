@@ -24,7 +24,7 @@ const HeroSection = () => {
         >
           Welcome to
           <br />
-          <span className="italic font-normal">Makanyi</span>
+          <span className="font-sub text-5xl md:text-7xl lg:text-8xl font-normal block mt-2">Makanyi</span>
         </motion.h1>
 
         <motion.div
@@ -38,7 +38,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="mt-6 text-white/80 font-body text-sm md:text-base font-light max-w-lg leading-relaxed tracking-wider"
+          className="mt-6 text-white/80 font-sub text-2xl md:text-3xl max-w-lg leading-relaxed"
         >
           Situated in the Big 5 Timbavati Nature Reserve
         </motion.p>

@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Cinzel"', 'Georgia', 'serif'],
+        sub: ['"Niconne"', 'cursive'],
         body: ['"Montserrat"', 'system-ui', 'sans-serif'],
       },
       colors: {
