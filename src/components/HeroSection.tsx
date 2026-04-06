@@ -11,51 +11,46 @@ const HeroSection = () => {
           alt="Makanyi Private Game Lodge at golden hour overlooking the Timbavati bushveld"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/50 via-foreground/20 to-foreground/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-background/70 text-xs tracking-safari uppercase font-body mb-6"
-        >
-          Timbavati Nature Reserve · South Africa
-        </motion.p>
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-16">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl text-background font-medium leading-tight max-w-4xl"
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="font-display text-5xl md:text-7xl lg:text-8xl text-white font-medium leading-[1.1] max-w-5xl"
         >
-          Where the Wild
+          Welcome to
           <br />
-          <span className="italic">Meets Luxury</span>
+          <span className="italic font-normal">Makanyi</span>
         </motion.h1>
+
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-3 w-16 h-px bg-gold"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-6 w-20 h-[1px] bg-accent"
         />
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-6 text-background/80 font-body text-sm md:text-base font-light max-w-xl leading-relaxed tracking-wide"
+          transition={{ duration: 1, delay: 1.2 }}
+          className="mt-6 text-white/80 font-body text-sm md:text-base font-light max-w-lg leading-relaxed tracking-wider"
         >
-          An exclusive Big 5 safari experience in the heart of untouched African wilderness
+          Situated in the Big 5 Timbavati Nature Reserve
         </motion.p>
+
         <motion.a
-          href="#contact"
+          href="#about"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className="mt-10 px-10 py-3.5 border border-gold text-gold text-xs tracking-safari uppercase font-body font-medium hover:bg-gold hover:text-background transition-all duration-500"
+          transition={{ duration: 1, delay: 1.6 }}
+          className="mt-10 px-10 py-3.5 bg-accent text-accent-foreground text-xs tracking-safari uppercase font-body font-semibold hover:bg-accent/90 transition-all duration-300"
         >
-          Begin Your Journey
+          Discover More
         </motion.a>
       </div>
 
@@ -63,13 +58,10 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        transition={{ delay: 2.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-background/50 text-[10px] tracking-safari uppercase font-body">
-          Scroll
-        </span>
-        <div className="w-px h-8 bg-background/30" />
+        <div className="w-[1px] h-10 bg-white/30 animate-pulse" />
       </motion.div>
     </section>
   );
