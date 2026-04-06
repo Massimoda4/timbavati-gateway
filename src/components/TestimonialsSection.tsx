@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="font-display text-2xl md:text-3xl text-primary-foreground mb-8 italic">
+              <h3 className="font-sub text-3xl md:text-4xl text-primary-foreground mb-8">
                 {testimonials[active].title}
               </h3>
               <p className="font-body text-primary-foreground/80 text-sm md:text-[15px] leading-[1.9] tracking-wide mb-8">

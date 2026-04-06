@@ -24,7 +24,7 @@ const HeroSection = () => {
         >
           Welcome to
           <br />
-          <span className="italic font-normal">Makanyi</span>
+          <span className="font-sub text-5xl md:text-7xl lg:text-8xl font-normal block mt-2">Makanyi</span>
         </motion.h1>
 
         <motion.div
