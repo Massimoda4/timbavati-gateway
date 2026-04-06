@@ -51,12 +51,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(var(--gold))",
-        "gold-light": "hsl(var(--gold-light))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
         bone: "hsl(var(--bone))",
         charcoal: "hsl(var(--charcoal))",
-        safari: "hsl(var(--safari-green))",
-        "safari-light": "hsl(var(--safari-green-light))",
+        safari: {
+          DEFAULT: "hsl(var(--safari-green))",
+          light: "hsl(var(--safari-green-light))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -76,6 +81,7 @@ export default {
       letterSpacing: {
         widest: '0.2em',
         safari: '0.3em',
+        mega: '0.5em',
       },
       keyframes: {
         "accordion-down": {
