@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Trajan Pro"', 'Georgia', 'serif'],
+        display: ['"Cinzel"', 'Georgia', 'serif'],
         sub: ['"Niconne"', 'cursive'],
         body: ['"Montserrat"', 'system-ui', 'sans-serif'],
       },
